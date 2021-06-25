@@ -114,7 +114,7 @@ def yarn_submit(args, nworker, nserver, pass_env):
     def run():
         """internal running function."""
         logging.debug(cmd)
-        subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, env=env).communicate()
+        subprocess.Popen(cmd, shell=False, stdout=subprocess.PIPE, env=env).communicate()
 
     thread = Thread(target=run, args=())
     thread.setDaemon(True)

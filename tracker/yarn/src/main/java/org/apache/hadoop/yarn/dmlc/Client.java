@@ -140,8 +140,10 @@ public class Client {
             Path path = new Path(e.getValue());
             // copy local data to temporary folder in HDFS
             if (!e.getValue().startsWith("hdfs://")) {
-                Path dst = new Path("hdfs://" + tmpPath + "/"+  path.getName());
-                dfs.copyFromLocalFile(false, true, path, dst);
+                //Path dst = new Path("hdfs://" + tmpPath + "/"+  path.getName());
+                LOG.info(dfs.getDefaultUri(conf).toString() + tmpPath + "/"+  path.getName());
+                Path dst = new Path(dfs.getDefaultUri(conf).toString() + tmpPath + "/"+  path.getName());
+		dfs.copyFromLocalFile(false, true, path, dst);
                 dfs.setPermission(dst, permTemp);
                 dfs.deleteOnExit(dst);
                 path = dst;
