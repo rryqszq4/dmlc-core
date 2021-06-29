@@ -134,7 +134,7 @@ ParseBlock(const char *begin,
       std::ptrdiff_t advanced = IgnoreCommentAndBlank(p, lend);
       p += advanced;
       int r = ParsePair<IndexType, real_t>(p, lend, &q, featureId, value);
-      if (r < 1) {
+      if (r <= 1) {
         // q is set to line end by `ParsePair', here is p. The latter terminates
         // while loop of parsing features.
         p = q;
