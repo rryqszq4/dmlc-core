@@ -83,8 +83,9 @@ else
 endif
 
 ifeq ($(USE_GLOG), 1)
-	DMLC_CFLAGS += -DDMLC_USE_GLOG=1
-	#DMLC_LDFLAGS += -lglog
+	DMLC_CFLAGS += -DDMLC_USE_GLOG=1 -I../ps-lite/deps/include
+	DMLC_LDFLAGS += -L./../../ps-lite/deps/lib -lgflags -lglog -Wl,-rpath=./../../ps-lite/deps/lib
+	#DMLC_LDFLAGS += -L./../ps-lite/deps/lib ../ps-lite/deps/lib/libglog.a
 endif
 
 ifeq ($(USE_AZURE),1)

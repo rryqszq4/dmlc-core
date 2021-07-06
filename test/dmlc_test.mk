@@ -5,7 +5,7 @@ TEST=test/filesys_test test/dataiter_test\
 	test/logging_test test/parameter_test test/registry_test\
 	test/csv_parser_test test/snappy_parser_test
 
-test/filesys_test: test/filesys_test.cc src/io/*.h libdmlc.a
+test/filesys_test: test/filesys_test.cc src/io/*.h libdmlc.a 
 test/dataiter_test: test/dataiter_test.cc  libdmlc.a
 test/iostream_test: test/iostream_test.cc libdmlc.a
 test/recordio_test: test/recordio_test.cc libdmlc.a
@@ -20,7 +20,7 @@ test/strtonum_test: test/strtonum_test.cc
 test/logging_test: test/logging_test.cc
 test/parameter_test: test/parameter_test.cc
 test/registry_test: test/registry_test.cc
-test/snappy_parser_test: test/snappy_parser_test.cc
+test/snappy_parser_test: test/snappy_parser_test.cc src/data/snappy_parser.h libdmlc.a snappy/build/libsnappy.a 
 
 $(TEST) :
 	$(CXX) $(CFLAGS) -o $@ $(filter %.cpp %.o %.c %.cc %.a,  $^) $(LDFLAGS)

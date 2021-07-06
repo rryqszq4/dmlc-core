@@ -18,10 +18,10 @@ export MPICXX = mpicxx
 export AR = ar
 
 # the additional link flags you want to add
-ADD_LDFLAGS =
+ADD_LDFLAGS = -L./snappy/build 
 
 # the additional compile flags you want to add
-ADD_CFLAGS =
+ADD_CFLAGS = -I./snappy -I./snappy/build
 
 # whether to compile with -fPIC option
 # Note: to build shared library(so files), fPIC is required
@@ -31,7 +31,8 @@ WITH_FPIC = 1
 USE_OPENMP = 0
 
 # whether use HDFS support during compile
-USE_HDFS = 0
+USE_HDFS = 1
+USE_GLOG = 1
 
 # whether use AWS S3 support during compile
 USE_S3 = 0

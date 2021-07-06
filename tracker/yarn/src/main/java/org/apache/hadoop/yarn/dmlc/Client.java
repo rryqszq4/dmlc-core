@@ -329,6 +329,8 @@ public class Client {
 
             yarnClient.killApplication(appId);
         }
+    	System.err.println("Exit now");
+	System.exit(0);
     }
 
     class CtrlCHandler implements SignalHandler{
