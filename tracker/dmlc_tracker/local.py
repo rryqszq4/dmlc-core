@@ -27,7 +27,7 @@ def exec_cmd(cmd, num_attempt, role, taskid, pass_env):
     num_trial = 0
 
     logging.debug('num of retry %d',num_retry)
-
+    
     while True:
         if os.name == 'nt':
             ret = subprocess.call(cmdline, shell=True, env=env)
