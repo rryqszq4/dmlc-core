@@ -77,7 +77,7 @@ def main():
     if 'DMLC_JOB_ARCHIVES' in env:
         unzip_archives(env['DMLC_JOB_ARCHIVES'].split(':'), env)
 
-    fp = subprocess.Popen(args=sys.argv[1:], stdout=subprocess.PIPE, shell=False, env=env)
+    fp = subprocess.Popen(args=sys.argv[1:], shell=False, env=env)
     fp.communicate()
     sys.exit(fp.returncode)
 
